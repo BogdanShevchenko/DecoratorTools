@@ -18,3 +18,10 @@ parameters of function will be
 ```python
 {a: 10, b: 5, args: [], c: 1, d: 2, kwargs: {}}
 ```
+
+The same result will be returned by
+```python
+from from parce import get_args_dict
+
+get_args_dict(f, args=[10], kwargs={'b': 5})
+```
