@@ -104,3 +104,21 @@ def test_named_with_args():
     def f(x, y, z, *args):
         return 0
     assert get_args_dict(f, args=[1, 2], kwargs={'z': 3}) == {'x': 1, 'y': 2, 'z': 3, 'args': []}
+
+
+def test_kwarg_in_kwarg():
+    def f(x, y, z, *args, **kwargs):
+        return 0
+    assert get_args_dict(f, args=[1, 2], kwargs={'z': 3, 'args': 10, 'kwargs': 100}) == {
+        'x': 1, 'y': 2, 'z': 3, 'args': [], 'kwargs': {'args': 10, 'kwargs': 100}}
+
+
+def test_kwarg_in_kwarg2():
+    def f(x, y, z, *args, **kwargs):
+        return 0
+    assert get_args_dict(f, args=[1, 2, 3, 4, 5], kwargs={'args': 10, 'kwargs': 100}) == {
+        'x': 1, 'y': 2, 'z': 3, 'args': [4, 5], 'kwargs': {'args': 10, 'kwargs': 100}}
+
+
+def test_lambda():
+    assert get_args_dict(lambda x, y, z: 0, args=[1, 2, 3], kwargs={}) == {'x': 1, 'y': 2, 'z': 3}
