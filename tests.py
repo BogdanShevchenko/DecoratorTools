@@ -1,5 +1,5 @@
 import pytest
-from parce import get_args_dict
+from parse import get_args_dict
 
 
 def test_pos():
