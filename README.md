@@ -21,7 +21,7 @@ parameters of function will be
 
 The same result will be returned by
 ```python
-from from parce import get_args_dict
+from from parse import get_args_dict
 
 get_args_dict(f, args=[10], kwargs={'b': 5})
 ```
